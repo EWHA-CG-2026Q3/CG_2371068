@@ -49,6 +49,8 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.3.23f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\S06\S06_OpenGL_Finish.cs" />
+    <Compile Include="Assets\S06\S06_NaiveTriangle_Finish.cs" />
     <Compile Include="Assets\S04_Mesh3D\S04_CustomDiamondMesh.cs" />
     <Compile Include="Assets\S04_Mesh3D\S04_CustomTetrahedronMesh_Finish.cs" />
     <Compile Include="Assets\S02_CoordinateSystem\S02_Test.cs" />
@@ -57,8 +59,13 @@
     <Compile Include="Assets\S03_Mesh2D\S03_CustomPolygonMesh_Square.cs" />
     <Compile Include="Assets\S05\S05_MyMeshRenderer.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\S06\S06_RightTriangle_Finish.cs" />
     <Compile Include="Assets\S03_Mesh2D\S03_SingleTriangleMesh_Finish.cs" />
+    <Compile Include="Assets\S06\S06_SoftwareRasterizer_Finish.cs" />
     <Compile Include="Assets\S02_CoordinateSystem\S02_CoordinateWarmup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\S06\S06_OpenGL_Shader.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
