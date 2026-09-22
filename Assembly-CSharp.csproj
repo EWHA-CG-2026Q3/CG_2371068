@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Assets\S06\S06_OpenGL_Finish.cs" />
     <Compile Include="Assets\S06\S06_NaiveTriangle_Finish.cs" />
+    <Compile Include="Assets\S07\S07_DepthTest1_Finish.cs" />
     <Compile Include="Assets\S04_Mesh3D\S04_CustomDiamondMesh.cs" />
     <Compile Include="Assets\S04_Mesh3D\S04_CustomTetrahedronMesh_Finish.cs" />
     <Compile Include="Assets\S02_CoordinateSystem\S02_Test.cs" />
@@ -62,7 +63,10 @@
     <Compile Include="Assets\S06\S06_RightTriangle_Finish.cs" />
     <Compile Include="Assets\S03_Mesh2D\S03_SingleTriangleMesh_Finish.cs" />
     <Compile Include="Assets\S06\S06_SoftwareRasterizer_Finish.cs" />
+    <Compile Include="Assets\S07\S07_Clipping.cs" />
+    <Compile Include="Assets\S07\S07_DepthTest_DepthVisualizer.cs" />
     <Compile Include="Assets\S02_CoordinateSystem\S02_CoordinateWarmup.cs" />
+    <Compile Include="Assets\S07\S07_DepthTest2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\S06\S06_OpenGL_Shader.shader" />
