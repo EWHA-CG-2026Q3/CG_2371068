@@ -58,7 +58,11 @@
     <Compile Include="Assets\S04_Mesh3D\S04_CustomCubeMesh.cs" />
     <Compile Include="Assets\S03_Mesh2D\S03_CustomPolygonMesh_Square.cs" />
     <Compile Include="Assets\S05\S05_MyMeshRenderer.cs" />
+    <Compile Include="Assets\S07_DepthTest_Clipping\S07_Clipping.cs" />
+    <Compile Include="Assets\S07_DepthTest_Clipping\S07_DepthTest1_Finish.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\S07_DepthTest_Clipping\S07_DepthTest2.cs" />
+    <Compile Include="Assets\S07_DepthTest_Clipping\S07_DepthTest_DepthVisualizer.cs" />
     <Compile Include="Assets\S06\S06_RightTriangle_Finish.cs" />
     <Compile Include="Assets\S03_Mesh2D\S03_SingleTriangleMesh_Finish.cs" />
     <Compile Include="Assets\S06\S06_SoftwareRasterizer_Finish.cs" />
