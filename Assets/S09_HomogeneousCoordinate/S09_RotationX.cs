@@ -50,7 +50,9 @@ public class S09_RotationX : MonoBehaviour
         float s = Mathf.Sin(rad);
         // TODO: x축 회전 행렬을 float[4,4]로 반환
         //       (4열과 4행은 z축 회전과 같음)
-        //       완성하면 아래의 임시 반환(단위행렬)을 지울 것
+        //       완성하면 아래의 임시 반환(단위행렬)을 지울 것 
+
+        //++ ShearMatrixRaw(float k) 작성--새로운 스크립트 파일 만들거나 이 파일 내에 추가.
 
         return new float[,] { 
             { 1f, 0f, 0f, 0f },
