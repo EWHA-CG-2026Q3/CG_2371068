@@ -54,6 +54,7 @@
     <Compile Include="Assets\S07\S07_DepthTest1_Finish.cs" />
     <Compile Include="Assets\S04_Mesh3D\S04_CustomDiamondMesh.cs" />
     <Compile Include="Assets\S04_Mesh3D\S04_CustomTetrahedronMesh_Finish.cs" />
+    <Compile Include="Assets\S10_HierarchyAndMatrixComposition\S10_DiamondChain_Finish.cs" />
     <Compile Include="Assets\S02_CoordinateSystem\S02_Test.cs" />
     <Compile Include="Assets\S09_HomogeneousCoordinate\S09_sheer.cs" />
     <Compile Include="Assets\S04_Mesh3D\S04_NormalVisualizer.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Assets\S05\S05_MyMeshRenderer.cs" />
     <Compile Include="Assets\S09_HomogeneousCoordinate\S09_TRS_Raw_Finish.cs" />
     <Compile Include="Assets\S09_HomogeneousCoordinate\S09_MatrixLimits_Finish.cs" />
+    <Compile Include="Assets\S10_HierarchyAndMatrixComposition\S10_LocalToWorldMatrixPrinter.cs" />
     <Compile Include="Assets\S08_DirectTransform\S08_BuiltinCompare.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\S06\S06_RightTriangle_Finish.cs" />
@@ -70,9 +72,11 @@
     <Compile Include="Assets\S03_Mesh2D\S03_SingleTriangleMesh_Finish.cs" />
     <Compile Include="Assets\S06\S06_SoftwareRasterizer_Finish.cs" />
     <Compile Include="Assets\S08_DirectTransform\DiamondMesh.cs" />
+    <Compile Include="Assets\S10_HierarchyAndMatrixComposition\S10_Matrix4x4_Finish.cs" />
     <Compile Include="Assets\S07\S07_Clipping.cs" />
     <Compile Include="Assets\S07\S07_DepthTest_DepthVisualizer.cs" />
     <Compile Include="Assets\S02_CoordinateSystem\S02_CoordinateWarmup.cs" />
+    <Compile Include="Assets\S10_HierarchyAndMatrixComposition\DiamondMesh_Rewinded.cs" />
     <Compile Include="Assets\S07\S07_DepthTest2.cs" />
   </ItemGroup>
   <ItemGroup>
