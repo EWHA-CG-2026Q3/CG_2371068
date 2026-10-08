@@ -59,6 +59,10 @@ public class S11_VirtualCamera_Finish : MonoBehaviour
         }
     }
 
+    //Matrix4x4 MultiplyMatrixMatrix()
+    //{
+        
+    //}
     // V = R⁻¹ × T⁻¹ : 먼저 이동을 되돌리고(T⁻¹), 그다음 회전을 되돌림(R⁻¹)
     Matrix4x4 BuildViewMatrix(Transform cam)
     {
