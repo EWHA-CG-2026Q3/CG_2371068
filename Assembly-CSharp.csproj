@@ -63,6 +63,7 @@
     <Compile Include="Assets\S03_Mesh2D\S03_CustomPolygonMesh_Square.cs" />
     <Compile Include="Assets\S05\S05_MyMeshRenderer.cs" />
     <Compile Include="Assets\S09_HomogeneousCoordinate\S09_TRS_Raw_Finish.cs" />
+    <Compile Include="Assets\S11_ViewTransform\PyramidMesh.cs" />
     <Compile Include="Assets\S09_HomogeneousCoordinate\S09_MatrixLimits_Finish.cs" />
     <Compile Include="Assets\S10_HierarchyAndMatrixComposition\S10_LocalToWorldMatrixPrinter.cs" />
     <Compile Include="Assets\S08_DirectTransform\S08_BuiltinCompare.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Assets\S06\S06_RightTriangle_Finish.cs" />
     <Compile Include="Assets\S09_HomogeneousCoordinate\S09_RotationX.cs" />
     <Compile Include="Assets\S03_Mesh2D\S03_SingleTriangleMesh_Finish.cs" />
+    <Compile Include="Assets\S11_ViewTransform\S11_VirtualCamera_Finish.cs" />
     <Compile Include="Assets\S06\S06_SoftwareRasterizer_Finish.cs" />
     <Compile Include="Assets\S08_DirectTransform\DiamondMesh.cs" />
     <Compile Include="Assets\S10_HierarchyAndMatrixComposition\S10_Matrix4x4_Finish.cs" />
