@@ -57,7 +57,8 @@ public class S12_VirtualCamera_Finish : MonoBehaviour
     // 원근 투영 행렬 P: 1행 1/(tan(fov/2) * aspect), 2행 1/tan(fov/2), 4행 [0 0 1 0]
     Matrix4x4 BuildProjectionMatrix()
     {
-        float aspect = (float)width / height;                      // 캔버스의 가로세로 비 (400 ÷ 300)
+        float aspect = (float)width / height;    
+        //float aspect = 1f;          
         float t = Mathf.Tan(fieldOfView * 0.5f * Mathf.Deg2Rad);   // tan(fov / 2)
 
         Matrix4x4 m = Matrix4x4.zero;                              // 16칸 모두 0에서 시작
