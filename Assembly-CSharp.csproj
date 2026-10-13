@@ -78,6 +78,7 @@
     <Compile Include="Assets\S07\S07_Clipping.cs" />
     <Compile Include="Assets\S07\S07_DepthTest_DepthVisualizer.cs" />
     <Compile Include="Assets\S02_CoordinateSystem\S02_CoordinateWarmup.cs" />
+    <Compile Include="Assets\S12_Projection\S12_VirtualCamera_Finish.cs" />
     <Compile Include="Assets\S10_HierarchyAndMatrixComposition\DiamondMesh_Rewinded.cs" />
     <Compile Include="Assets\S07\S07_DepthTest2.cs" />
   </ItemGroup>
