@@ -51,24 +51,35 @@
   <ItemGroup>
     <Compile Include="Assets\S06\S06_OpenGL_Finish.cs" />
     <Compile Include="Assets\S06\S06_NaiveTriangle_Finish.cs" />
+    <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\Samples.cs" />
     <Compile Include="Assets\S07\S07_DepthTest1_Finish.cs" />
     <Compile Include="Assets\S04_Mesh3D\S04_CustomDiamondMesh.cs" />
     <Compile Include="Assets\S04_Mesh3D\S04_CustomTetrahedronMesh_Finish.cs" />
+    <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\SamplesFreeCamera.cs" />
     <Compile Include="Assets\S10_HierarchyAndMatrixComposition\S10_DiamondChain_Finish.cs" />
     <Compile Include="Assets\S02_CoordinateSystem\S02_Test.cs" />
+    <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\RequiredSettings\IRequiredSetting.cs" />
     <Compile Include="Assets\S09_HomogeneousCoordinate\S09_sheer.cs" />
     <Compile Include="Assets\S04_Mesh3D\S04_NormalVisualizer.cs" />
     <Compile Include="Assets\S04_Mesh3D\S04_CustomCubeMesh.cs" />
     <Compile Include="Assets\S08_DirectTransform\S08_DirectTransform.cs" />
     <Compile Include="Assets\S03_Mesh2D\S03_CustomPolygonMesh_Square.cs" />
+    <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\RequiredSettings\RequiredSettingsSOT.cs" />
+    <Compile Include="Assets\S13_Pavilion\SceneWalker.cs" />
     <Compile Include="Assets\S05\S05_MyMeshRenderer.cs" />
+    <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\SamplesLinkLightToEmissive.cs" />
     <Compile Include="Assets\S09_HomogeneousCoordinate\S09_TRS_Raw_Finish.cs" />
+    <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\GetSampleInfos.cs" />
     <Compile Include="Assets\S11_ViewTransform\PyramidMesh.cs" />
     <Compile Include="Assets\S09_HomogeneousCoordinate\S09_MatrixLimits_Finish.cs" />
     <Compile Include="Assets\S10_HierarchyAndMatrixComposition\S10_LocalToWorldMatrixPrinter.cs" />
     <Compile Include="Assets\S08_DirectTransform\S08_BuiltinCompare.cs" />
+    <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\InstallPackage.cs" />
+    <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\RequiredSettings\RequiredSettingBase.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\SamplesShowcase.cs" />
     <Compile Include="Assets\S06\S06_RightTriangle_Finish.cs" />
+    <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\AlignSceneView.cs" />
     <Compile Include="Assets\S09_HomogeneousCoordinate\S09_RotationX.cs" />
     <Compile Include="Assets\S03_Mesh2D\S03_SingleTriangleMesh_Finish.cs" />
     <Compile Include="Assets\S11_ViewTransform\S11_VirtualCamera_Finish.cs" />
@@ -84,6 +95,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\S06\S06_OpenGL_Shader.shader" />
+    <None Include="Assets\S13_Pavilion\S13_MyShader_Finish.shader" />
+    <None Include="Assets\S13_Pavilion\S13_SDFCircle_Finish.shader" />
+    <None Include="Assets\S13_Pavilion\S13_MyShader.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

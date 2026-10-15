@@ -50,6 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
+    <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\Editor\SamplesShowcaseEditor.cs" />
+    <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\Editor\InstallPackageEditor.cs" />
+    <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\Editor\SamplesShowcaseEditorWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
