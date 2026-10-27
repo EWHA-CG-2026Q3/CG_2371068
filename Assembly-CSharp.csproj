@@ -94,9 +94,12 @@
     <Compile Include="Assets\S07\S07_DepthTest2.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\S16_Shader\S16_MyShader.shader" />
     <None Include="Assets\S06\S06_OpenGL_Shader.shader" />
     <None Include="Assets\S13_Pavilion\S13_MyShader_Finish.shader" />
     <None Include="Assets\S13_Pavilion\S13_SDFCircle_Finish.shader" />
+    <None Include="Assets\S16_Shader\S16_MyCoal.shader" />
+    <None Include="Assets\S16_Shader\S16_MyCoal_Finish.shader" />
     <None Include="Assets\S13_Pavilion\S13_MyShader.shader" />
   </ItemGroup>
   <ItemGroup>
