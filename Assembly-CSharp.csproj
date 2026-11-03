@@ -95,11 +95,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\S17\S17_MyTexture.shader" />
+    <None Include="Assets\S18_WrappingAndFiltering\S18_MyCoal.shader" />
     <None Include="Assets\S16\S16_MyShader.shader" />
     <None Include="Assets\S06\S06_OpenGL_Shader.shader" />
+    <None Include="Assets\S18_WrappingAndFiltering\S18_Texture_Finish.shader" />
     <None Include="Assets\S13_Pavilion\S13_MyShader_Finish.shader" />
     <None Include="Assets\S17_Texture\S17_Texture.shader" />
     <None Include="Assets\S13_Pavilion\S13_SDFCircle_Finish.shader" />
+    <None Include="Assets\S18_WrappingAndFiltering\S18_Texture.shader" />
     <None Include="Assets\S16\S16_MyCoal.shader" />
     <None Include="Assets\S16\S16_MyCoal_Finish.shader" />
     <None Include="Assets\S17\S16_MyCoal.shader" />
