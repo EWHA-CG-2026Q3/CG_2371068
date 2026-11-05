@@ -76,6 +76,7 @@
     <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\GetSampleInfos.cs" />
     <Compile Include="Assets\S08\S08_DirectTransform.cs" />
     <Compile Include="Assets\S10\DiamondMesh_Rewinded.cs" />
+    <Compile Include="Assets\S19_Phong\S19_DiamondMesh_Faceted.cs" />
     <Compile Include="Assets\S09\S09_RotationX.cs" />
     <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\InstallPackage.cs" />
     <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\RequiredSettings\RequiredSettingBase.cs" />
@@ -99,6 +100,7 @@
     <None Include="Assets\S16\S16_MyShader.shader" />
     <None Include="Assets\S06\S06_OpenGL_Shader.shader" />
     <None Include="Assets\S18_WrappingAndFiltering\S18_Texture_Finish.shader" />
+    <None Include="Assets\S19_Phong\S19_Phong_Finish.shader" />
     <None Include="Assets\S13_Pavilion\S13_MyShader_Finish.shader" />
     <None Include="Assets\S17_Texture\S17_Texture.shader" />
     <None Include="Assets\S13_Pavilion\S13_SDFCircle_Finish.shader" />
@@ -107,6 +109,7 @@
     <None Include="Assets\S16\S16_MyCoal_Finish.shader" />
     <None Include="Assets\S17\S16_MyCoal.shader" />
     <None Include="Assets\S13_Pavilion\S13_MyShader.shader" />
+    <None Include="Assets\S19_Phong\S19_Phong_Start.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
