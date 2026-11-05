@@ -107,6 +107,7 @@
     <None Include="Assets\S18_WrappingAndFiltering\S18_Texture.shader" />
     <None Include="Assets\S16\S16_MyCoal.shader" />
     <None Include="Assets\S16\S16_MyCoal_Finish.shader" />
+    <None Include="Assets\S19_Phong\S19_MyPhong.shader" />
     <None Include="Assets\S17\S16_MyCoal.shader" />
     <None Include="Assets\S13_Pavilion\S13_MyShader.shader" />
     <None Include="Assets\S19_Phong\S19_Phong_Start.shader" />
