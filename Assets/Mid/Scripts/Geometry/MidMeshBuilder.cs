@@ -25,7 +25,7 @@ namespace SilentPavilion
         // P(i,j) = C(t) + r(t)[cos(theta)N(t) + flatten*sin(theta)B(t)].
         // 이전 단면의 N을 새 접평면에 투영해 프레임이 갑자기 뒤집히는 것을 줄인다.
         public void AddTube(Vector3[] path, float[] radii, int steps = 28, int sides = 12,
-            float flatten = 1f, float irregularity = .025f)
+            float flatten = 1f, float irregularity = .025f, float twistTurns = 0, int lobes = 3)
         {
             if (path == null || path.Length < 2 || radii.Length != path.Length)
                 throw new System.ArgumentException("경로와 반지름 개수가 맞아야 합니다.");
@@ -50,8 +50,10 @@ namespace SilentPavilion
                 float radius = Mathf.Lerp(radii[k], radii[k + 1], Mathf.SmoothStep(0, 1, t));
                 for (int j = 0; j <= sides; j++)
                 {
-                    float angle = j * 2 * Mathf.PI / sides;
-                    float organic = 1 + irregularity * Mathf.Sin(angle * 3 + f * 4);
+                    float ringAngle = j * 2 * Mathf.PI / sides;
+                    float angle = ringAngle + twistTurns * 2 * Mathf.PI * i / steps;
+                    // 나무형 표면의 단면 비틀림과 세로 능선. 기존 호출은 기본값 유지.
+                    float organic = 1 + irregularity * Mathf.Sin(ringAngle * lobes + f * 4);
                     Vertex(center + radius * organic * (Mathf.Cos(angle)*n + Mathf.Sin(angle)*flatten*binormal),
                         new Vector2((float)j / sides, (float)i / steps * 3));
                 }

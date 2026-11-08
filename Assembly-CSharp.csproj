@@ -57,6 +57,7 @@
     <Compile Include="Assets\S04_Mesh3D\S04_CustomTetrahedronMesh_Finish.cs" />
     <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\SamplesFreeCamera.cs" />
     <Compile Include="Assets\S10\S10_Matrix4x4_Finish.cs" />
+    <Compile Include="Assets\Mid\Scripts\Effects\MidProximityStatic.cs" />
     <Compile Include="Assets\S10\S10_DiamondChain_Finish.cs" />
     <Compile Include="Assets\S11\PyramidMesh.cs" />
     <Compile Include="Assets\S02_CoordinateSystem\S02_Test.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="Assets\S07\S07_DepthTest2.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Mid\Shaders\Mid_ScreenStatic.shader" />
     <None Include="Assets\S17\S17_MyTexture.shader" />
     <None Include="Assets\S18_WrappingAndFiltering\S18_MyCoal.shader" />
     <None Include="Assets\S16\S16_MyShader.shader" />
@@ -120,7 +122,9 @@
     <None Include="Assets\Mid\Documentation\PlayModeValidation.txt" />
     <None Include="Assets\S19_Phong\S19_MyPhong.shader" />
     <None Include="Assets\S17\S16_MyCoal.shader" />
+    <None Include="Assets\Mid\Documentation\BenchPlacement.txt" />
     <None Include="Assets\S13_Pavilion\S13_MyShader.shader" />
+    <None Include="Assets\Mid\Shaders\Mid_CreatureBark.shader" />
     <None Include="Assets\S19_Phong\S19_Phong_Start.shader" />
   </ItemGroup>
   <ItemGroup>

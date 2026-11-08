@@ -30,5 +30,10 @@ namespace SilentPavilion
                 m[1,0]*p.x+m[1,1]*p.y+m[1,2]*p.z+m[1,3],
                 m[2,0]*p.x+m[2,1]*p.y+m[2,2]*p.z+m[2,3]);
         }
+        public static float[,] RotationZ(float radians)
+        {
+            var m=Identity();float c=Mathf.Cos(radians),s=Mathf.Sin(radians);
+            m[0,0]=c;m[0,1]=-s;m[1,0]=s;m[1,1]=c;return m;
+        }
     }
 }

@@ -58,6 +58,21 @@ namespace SilentPavilion.Editor
                 if(AssetDatabase.GetAssetPath(mf.sharedMesh).EndsWith("Pavilion.FBX"))
                     report.AppendLine("Pavilion part "+mf.name+": "+mf.GetComponent<Renderer>().bounds);
             var breath=Object.FindFirstObjectByType<MidCreatureBreathing>();Require(breath!=null,"호흡 컴포넌트 누락");
+            Require(GameObject.Find("Old wooden chair")==null,"별도 의자가 남아 있습니다.");
+            var set=breath.transform.parent;
+            var pavilion=GameObject.Find("Pavilion / reused original geometry");
+            float floor=MidSceneRevision.MeasureFloor(pavilion);
+            Bounds bench=MidSceneRevision.MeasureBench(pavilion,floor);
+            float pelvisBottom=set.TransformPoint(new Vector3(0,.68f,.05f)).y;
+            Require(Mathf.Abs(pelvisBottom-bench.center.y)<.005f,"골반이 기존 의자 좌판에 닿지 않습니다.");
+            Vector3 pelvis=set.TransformPoint(new Vector3(0,.68f,.05f));bool supported=false;
+            foreach(var collider in pavilion.GetComponentsInChildren<Collider>())
+                if(collider.Raycast(new Ray(pelvis+Vector3.up*.2f,Vector3.down),out RaycastHit contact,.3f)
+                    && Mathf.Abs(contact.point.y-pelvis.y)<.005f) supported=true;
+            Require(supported,"원본 의자 충돌체가 골반을 받치지 않습니다.");
+            Require(Mathf.Abs(set.TransformPoint(new Vector3(0,.02f,0)).y-floor)<.005f,"발 높이가 정자 바닥과 다릅니다.");
+            Require(Vector3.Dot(-set.forward,Vector3.right)>.99f,"크리처가 정자 안쪽을 향하지 않습니다.");
+            report.AppendLine("PASS: no separate chair; pelvis contacts original bench; creature faces inward.");
             var pivot=breath.pivot;
             Require(Vector3.Distance(MidMatrixMath.TransformPoint(breath.MatrixAt(1.3f),pivot),pivot)<.0001f,"호흡 중 골반 기준점 이동");
             Require(MidAtmosphere.RevealAtDistance(2)>MidAtmosphere.RevealAtDistance(9),"접근 연출 거리 계산");
@@ -65,16 +80,21 @@ namespace SilentPavilion.Editor
             Require(wisps.Length>=2 && Vector3.Distance(wisps[0].PositionAt(0),wisps[0].PositionAt(3))>.01f,"불빛 운동 누락");
             report.AppendLine("PASS: pelvis pivot fixed; distance reveal; independent wisp motion.");
             var walker=Object.FindFirstObjectByType<MidFirstPersonController>();Require(walker!=null && walker.view!=null,"플레이어 누락");
+            var interference=Object.FindFirstObjectByType<MidProximityStatic>();
+            Require(interference!=null && interference.overlay!=null && !interference.overlay.raycastTarget,"잡음 오버레이 참조/입력 차단 오류");
+            Require(!ShaderUtil.ShaderHasError(interference.overlay.material.shader),"잡음 셰이더 컴파일 오류");
+            Require(Object.FindObjectsByType<UnityEngine.UI.Text>(FindObjectsSortMode.None).Length==0,"화면 텍스트가 남아 있습니다.");
+            report.AppendLine("PASS: branch creature bark shader; text-free static overlay does not intercept input.");
             var camera=walker.view.GetComponent<Camera>();Require(camera!=null && camera.GetUniversalAdditionalCameraData().renderPostProcessing,"카메라 후처리 비활성");
             Physics.SyncTransforms();
             var controller=walker.GetComponent<CharacterController>();Vector3 initial=walker.transform.position;
             // 실제 CharacterController로 통로와 계단 충돌을 검증. Inspector 값은 원위치로 복원한다.
             for(int i=0;i<400;i++) controller.Move(new Vector3(0,-.02f,0));
-            for(int i=0;i<700 && walker.transform.position.z<-.95f;i++) controller.Move(new Vector3(0,-.015f,.025f));
+            for(int i=0;i<1000 && walker.transform.position.z<1.8f;i++) controller.Move(new Vector3(0,-.015f,.025f));
             Vector3 reached=walker.transform.position;
             controller.enabled=false;walker.transform.position=initial;controller.enabled=true;Physics.SyncTransforms();
             report.AppendLine("Walk route endpoint: "+reached.ToString("F3"));
-            Require(reached.z>-1.5f,"정자 진입 경로가 막혔습니다. 도착점: "+reached);
+            Require(reached.z>1.6f,"기존 의자 앞까지 진입 경로가 막혔습니다. 도착점: "+reached);
             Require(reached.y>-.2f && reached.y<1.8f,"플레이어 바닥 높이 비정상");
             report.AppendLine("PASS: CharacterController outside -> pavilion interior, restored initial position.");
             File.WriteAllText(MidSceneBuilder.Root+"/Documentation/Validation.txt",report.ToString());
@@ -99,14 +119,18 @@ namespace SilentPavilion.Editor
             {
                 Capture(camera,rt,"Preview_Approach",new Vector3(0,1.7f,-9.5f),new Vector3(0,1.75f,.8f));
                 var atmosphere=Object.FindFirstObjectByType<MidAtmosphere>();
-                float floor=atmosphere.creature.position.y;
+                float floor=MidSceneRevision.MeasureFloor(GameObject.Find("Pavilion / reused original geometry"));
                 float originalIntensity=atmosphere.revealLight.intensity;
                 try
                 {
-                    atmosphere.revealLight.intensity=2.6f;
-                    Capture(camera,rt,"Preview_Interior",new Vector3(1.1f,floor+1.6f,-2.1f),new Vector3(0,floor+1.05f,.8f));
+                    atmosphere.revealLight.intensity=atmosphere.nearRevealIntensity;
+                    Vector3 chest=atmosphere.creature.TransformPoint(new Vector3(0,1.25f,0));
+                    Capture(camera,rt,"Preview_Interior",new Vector3(.7f,floor+1.64f,.15f),chest);
+                    CaptureMotionPoses(camera,rt,atmosphere.creature.GetComponent<MidCreatureBreathing>(),
+                        new Vector3(.7f,floor+1.64f,.15f),chest);
                 }
                 finally {atmosphere.revealLight.intensity=originalIntensity;}
+                Capture(camera,rt,"Preview_Forest",new Vector3(0,1.7f,-12),new Vector3(-5,5.5f,3));
             }
             finally {RenderTexture.active=before;rt.Release();Object.DestroyImmediate(rt);Object.DestroyImmediate(preview);}
             AssetDatabase.Refresh();Debug.Log("[Mid] Preview images saved under Assets/Mid/Documentation.");
@@ -121,6 +145,27 @@ namespace SilentPavilion.Editor
             var texture=new Texture2D(rt.width,rt.height,TextureFormat.RGB24,false);
             texture.ReadPixels(new Rect(0,0,rt.width,rt.height),0,0);texture.Apply();
             File.WriteAllBytes(MidSceneBuilder.Root+"/Documentation/"+name+".png",texture.EncodeToPNG());Object.DestroyImmediate(texture);
+        }
+        static void CaptureMotionPoses(Camera camera,RenderTexture rt,MidCreatureBreathing breath,Vector3 position,Vector3 target)
+        {
+            var upper=breath.upperBody;var eyes=breath.eyes.GetComponent<MeshFilter>();
+            Mesh original=upper.sharedMesh,originalEyes=eyes.sharedMesh;
+            Mesh preview=Object.Instantiate(original),previewEyes=Object.Instantiate(originalEyes);
+            try
+            {
+                upper.sharedMesh=preview;eyes.sharedMesh=previewEyes;
+                for(int frame=0;frame<2;frame++)
+                {
+                    float t=(frame==0?.25f:.75f)/breath.breathsPerSecond;
+                    var matrix=breath.MatrixAt(t);var v=original.vertices;var e=originalEyes.vertices;
+                    for(int i=0;i<v.Length;i++) v[i]=MidMatrixMath.TransformPoint(matrix,v[i]);
+                    for(int i=0;i<e.Length;i++) e[i]=MidMatrixMath.TransformPoint(matrix,e[i]);
+                    preview.vertices=v;preview.RecalculateNormals();preview.RecalculateBounds();
+                    previewEyes.vertices=e;previewEyes.RecalculateBounds();
+                    Capture(camera,rt,frame==0?"Preview_MotionA":"Preview_MotionB",position,target);
+                }
+            }
+            finally {upper.sharedMesh=original;eyes.sharedMesh=originalEyes;Object.DestroyImmediate(preview);Object.DestroyImmediate(previewEyes);}
         }
         public static void CaptureBatch() {EditorSceneManager.OpenScene(MidSceneBuilder.ScenePath);CapturePreviews();}
     }
