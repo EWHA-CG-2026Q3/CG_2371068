@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "duration_seconds": 57.97,
+  "width": 1280,
+  "height": 720,
+  "fps": 30.0,
+  "decoded_frames": 1739,
+  "unique_frame_hashes": 1737,
+  "bytes": 18315112,
+  "actual_unity_recording": true,
+  "decode_errors": 0
+}

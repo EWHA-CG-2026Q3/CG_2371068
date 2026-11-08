@@ -78,6 +78,7 @@ namespace SilentPavilion.Editor
             walker.moveSpeed=1.55f;walker.acceleration=10;walker.deceleration=20;walker.strideLength=1.45f;
             walker.headBobHeight=.027f;walker.headBobSide=.013f;walker.footstepAudio=true;EditorUtility.SetDirty(walker);
             EnsureStaticEffect(walker.transform,root);
+            MidLanternPlacement.Apply();
             var scene=MidSceneRevision.GetScene();EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();
             Debug.Log("[Mid] Branch creature, readable motion, grounded walking, static bursts and text removal saved.");
         }

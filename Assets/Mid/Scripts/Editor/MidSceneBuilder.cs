@@ -72,6 +72,7 @@ namespace SilentPavilion.Editor
             atmosphere.eyes=creature.transform.Find("Eyes").GetComponent<Renderer>();
             MidSceneRevision.TuneCreatureLighting(atmosphere,floor);
             MidScenePolish.EnsureStaticEffect(player,creature.transform);
+            MidLanternPlacement.Apply();
             CreateVolume();
             EditorSceneManager.MarkSceneDirty(scene);
             if(!EditorSceneManager.SaveScene(scene,ScenePath)) throw new IOException("장면 저장 실패");

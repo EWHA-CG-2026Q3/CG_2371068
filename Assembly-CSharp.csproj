@@ -71,6 +71,7 @@
     <Compile Include="Assets\Mid\Scripts\Transforms\MidCreatureBreathing.cs" />
     <Compile Include="Assets\S13_Pavilion\SceneWalker.cs" />
     <Compile Include="Assets\S08\S08_BuiltinCompare.cs" />
+    <Compile Include="Assets\Mid\Scripts\Effects\MidSubmissionTour.cs" />
     <Compile Include="Assets\S10\S10_LocalToWorldMatrixPrinter.cs" />
     <Compile Include="Assets\S05\S05_MyMeshRenderer.cs" />
     <Compile Include="Assets\S11\S11_VirtualCamera_Finish.cs" />
@@ -105,9 +106,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mid\Shaders\Mid_ScreenStatic.shader" />
+    <None Include="Assets\Mid\Submission\GIT_FILES.txt" />
     <None Include="Assets\S17\S17_MyTexture.shader" />
     <None Include="Assets\S18_WrappingAndFiltering\S18_MyCoal.shader" />
     <None Include="Assets\S16\S16_MyShader.shader" />
+    <None Include="Assets\Mid\Submission\GEOMETRY_AUDIT.txt" />
     <None Include="Assets\S06\S06_OpenGL_Shader.shader" />
     <None Include="Assets\S18_WrappingAndFiltering\S18_Texture_Finish.shader" />
     <None Include="Assets\S19_Phong\S19_Phong_Finish.shader" />
@@ -122,10 +125,12 @@
     <None Include="Assets\Mid\Documentation\PlayModeValidation.txt" />
     <None Include="Assets\S19_Phong\S19_MyPhong.shader" />
     <None Include="Assets\S17\S16_MyCoal.shader" />
+    <None Include="Assets\Mid\Submission\VIDEO_CAPTURE.txt" />
     <None Include="Assets\Mid\Documentation\BenchPlacement.txt" />
     <None Include="Assets\S13_Pavilion\S13_MyShader.shader" />
     <None Include="Assets\Mid\Shaders\Mid_CreatureBark.shader" />
     <None Include="Assets\S19_Phong\S19_Phong_Start.shader" />
+    <None Include="Assets\Mid\Documentation\LanternPlacement.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
