@@ -1,0 +1,4 @@
+The Silent Pavilion — actual Unity Play mode
+6000.3.23f1
+PASS: breathing mesh, independent wisp movement, CharacterController route, proximity reveal.
+Endpoint: (0.00, 0.68, -0.90) / reveal=1
