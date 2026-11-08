@@ -96,3 +96,14 @@
 - 28–40초: 기존 벤치 착석, 가지 형태와 호흡/흔들림, 짧은 접근 잡음 촬영.
 - 40–50초: 뒤틀린 나무와 떠다니는 불빛의 독립 운동.
 - 50–60초: 반복문 Mesh 생성과 직접 행렬 변환 함수 및 요구사항 표를 짧게 제시.
+
+## 최종 제출물과 랜턴 수정 (2026-11-08)
+
+- 최신 `중간과제설명2.pdf`에 따라 필수 ①·④에 더해 선택 요소 **2개**를 제시합니다. 추가 기하 모델링은 `MidTwistedTree`, 추가 변환은 독립적인 `MidWispMotion`이며, 크리처의 직접 행렬 변환과 구별합니다.
+- `MidLanternPlacement`는 복사한 램프 메시만 정규화하고 갓을 지붕 아래 배치합니다. 전구와 실제 Point Light를 같은 위치로 맞추며, 짧은 매달림 줄을 생성합니다. 원본 FBX는 보존합니다. 불빛·눈·랜턴 재질의 `_EMISSION` 키워드도 활성화했습니다.
+- 완성 장면은 `Scenes/TheSilentPavilion.unity`입니다. Unity 메뉴 `Tools > Mid > The Silent Pavilion > 01 Open or Create Scene`으로 연 다음 Play를 누릅니다. Game 화면을 클릭하고 WASD/마우스로 이동·시점을 조작하며 Esc로 마우스를 해제합니다.
+- `07 Final Audit and Lantern Placement`는 최종 배치·발광 설정 검사, `08 Record Submission Video (58 seconds)`는 실제 Game View 영상 재제작 메뉴입니다. 현재 결과물은 이미 생성되어 있으므로 재실행할 필요는 없습니다. 메뉴 실행 전 작업 중인 다른 장면을 저장하세요.
+- `Submission/The_Silent_Pavilion_Midterm.pdf`: 실제 스크린샷 2장, 오브젝트와 코드 근거, ①~⑥/URP/심화의 현재 상태와 기말 계획을 담은 한국어 3쪽 소개서.
+- `Submission/The_Silent_Pavilion_Midterm.mp4`: 실제 Unity Recorder 영상, 1280×720/30fps/약 58초. 이동·크리처 변형·숲·독립 불빛을 보여줍니다. 설명 자막은 녹화 중에만 생성되며 평소 플레이 화면에 저장되지 않습니다.
+- `Submission/FINAL_CHECKLIST.md`, `GIT_SUBMISSION.md`: 실제 검수 결과와 사용자 제출 명령. MP4/PDF/unitypackage는 Git 필수 파일이 아니며 사이버캠퍼스에 직접 제출할 수 있습니다. 자동 commit/push는 하지 않았습니다.
+- 녹화 준비로 생기는 Unity의 공용 설정 변경은 제출 변경에서 제외합니다. 기존 실습 장면과 코드는 보존합니다.
