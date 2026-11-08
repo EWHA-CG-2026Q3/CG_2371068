@@ -59,10 +59,7 @@ namespace SilentPavilion.Editor
             GameObject pavilion=CreatePavilion(environment,out float floor);
             Debug.Log("[Mid] Pavilion floor="+floor+", bounds="+CombinedBounds(pavilion));
             Transform set=Group("THE SEATED FIGURE");
-            set.position=new Vector3(0,floor,.8f);
-            // 원본 정자의 낮은 가로보 아래로 머리가 들어오도록 의자/인체의 비율을 함께 조정.
-            set.localScale=Vector3.one*.80f;
-            CreateChair(set);
+            MidSceneRevision.PositionOnBench(set,pavilion,floor);
             GameObject creature=CreateCreature(set);
             CreateForest(environment);
             CreateGroundDetails(environment);
@@ -73,6 +70,8 @@ namespace SilentPavilion.Editor
             atmosphere.player=player; atmosphere.creature=creature.transform;
             atmosphere.lantern=lights[0]; atmosphere.revealLight=lights[1];
             atmosphere.eyes=creature.transform.Find("Eyes").GetComponent<Renderer>();
+            MidSceneRevision.TuneCreatureLighting(atmosphere,floor);
+            MidScenePolish.EnsureStaticEffect(player,creature.transform);
             CreateVolume();
             EditorSceneManager.MarkSceneDirty(scene);
             if(!EditorSceneManager.SaveScene(scene,ScenePath)) throw new IOException("장면 저장 실패");
@@ -117,10 +116,8 @@ namespace SilentPavilion.Editor
         static void MakeMaterials()
         {
             wood=Lit("OldChairWood",new Color(.28f,.24f,.19f),.2f,0,Source+"Textures/Table_Wood.png");
-            skin=Lit("AshenSkin",new Color(.60f,.70f,.68f),.23f,.03f,
-                "Assets/ThirdParty/Textures/rough-igneous-rock-albedo.png");
-            skin.SetTextureScale("_BaseMap",new Vector2(3,5));
-            bark=Lit("TwistedBark",new Color(.17f,.21f,.20f),.18f,0,Source+"Textures/Wood_c.png");
+            skin=MidScenePolish.CreateBarkMaterial();
+            bark=Lit("TwistedBark",new Color(.26f,.30f,.28f),.18f,0,Source+"Textures/Wood_c.png");
             ground=Lit("WetEarth",new Color(.17f,.22f,.21f),.76f,.08f,
                 "Assets/ThirdParty/Textures/rough-igneous-rock-albedo.png");
             ground.SetTextureScale("_BaseMap",new Vector2(32,32));
@@ -137,12 +134,12 @@ namespace SilentPavilion.Editor
             mist=SaveAsset(new Material(shader) {name="Mat_Mid_GroundMist"},Root+"/Materials/Mat_Mid_GroundMist.mat");
         }
 
-        static void ConfigureNight()
+        internal static void ConfigureNight()
         {
             RenderSettings.skybox=null;
             RenderSettings.ambientMode=AmbientMode.Trilight;
-            RenderSettings.ambientSkyColor=new Color(.045f,.075f,.09f);
-            RenderSettings.ambientEquatorColor=new Color(.018f,.033f,.037f);
+            RenderSettings.ambientSkyColor=new Color(.10f,.14f,.17f);
+            RenderSettings.ambientEquatorColor=new Color(.045f,.065f,.075f);
             RenderSettings.ambientGroundColor=new Color(.008f,.012f,.014f);
             RenderSettings.ambientIntensity=1;
             RenderSettings.fog=true;RenderSettings.fogMode=FogMode.ExponentialSquared;
@@ -197,29 +194,6 @@ namespace SilentPavilion.Editor
             return go;
         }
 
-        static void CreateChair(Transform parent)
-        {
-            Transform chair=Group("Old wooden chair",parent);
-            Box("Seat",chair,new Vector3(0,.69f,.09f),new Vector3(.72f,.10f,.67f),wood);
-            for(int x=-1;x<=1;x+=2) for(int z=-1;z<=1;z+=2)
-            {
-                var leg=Box("Worn leg",chair,new Vector3(x*.285f,.33f,.09f+z*.25f),new Vector3(.075f,.66f,.075f),wood);
-                leg.transform.localRotation=Quaternion.Euler(z*3,0,-x*3);
-            }
-            for(int side=-1;side<=1;side+=2)
-            {
-                var post=Box("Back post",chair,new Vector3(side*.29f,1.10f,.36f),new Vector3(.065f,.88f,.065f),wood);
-                post.transform.localRotation=Quaternion.Euler(6,0,0);
-                Box("Side stretcher",chair,new Vector3(side*.285f,.25f,.09f),new Vector3(.045f,.05f,.52f),wood);
-            }
-            for(int i=0;i<3;i++)
-            {
-                var slat=Box("Split back slat",chair,new Vector3(0,1.03f+i*.18f,.39f+i*.015f),new Vector3(.57f,.085f,.045f),wood);
-                slat.transform.localRotation=Quaternion.Euler(0,0,i==1?-3:1);
-            }
-            Box("Front brace",chair,new Vector3(0,.27f,-.16f),new Vector3(.58f,.055f,.05f),wood);
-            PrefabUtility.SaveAsPrefabAsset(chair.gameObject,Root+"/Prefabs/Mid_OldChair.prefab");
-        }
         static GameObject CreateCreature(Transform parent)
         {
             var root=Group("Creature / seated procedural anatomy",parent).gameObject;
@@ -308,8 +282,10 @@ namespace SilentPavilion.Editor
         static Light[] CreateLighting(Transform parent,float floor)
         {
             Transform lighting=Group("Lighting / cold moon and failing lantern",parent);
-            var moon=Light("Moon through branches",lighting,new Vector3(0,12,0),new Color(.36f,.60f,.72f),.38f,50,LightType.Directional);
+            var moon=Light("Moon through branches",lighting,new Vector3(0,12,0),new Color(.36f,.60f,.72f),.65f,50,LightType.Directional);
             moon.transform.rotation=Quaternion.Euler(38,-40,0);moon.shadows=LightShadows.Soft;RenderSettings.sun=moon;
+            var sky=Light("Soft sky / branch readability",lighting,Vector3.zero,new Color(.27f,.42f,.52f),.18f,50,LightType.Directional);
+            sky.transform.rotation=Quaternion.Euler(55,140,0);
             var lantern=Light("Lantern / warm flicker",lighting,new Vector3(.95f,floor+2.65f,-.9f),new Color(1,.52f,.23f),2.3f,5.5f);
             lantern.shadows=LightShadows.Soft;
             // 원본 램프도 복제 후 전용 재질을 할당해 재사용한다.
@@ -364,8 +340,8 @@ namespace SilentPavilion.Editor
         {
             var profile=ScriptableObject.CreateInstance<VolumeProfile>();profile.name="Mid_NightVolume";
             var bloom=profile.Add<Bloom>(true);bloom.intensity.Override(.48f);bloom.threshold.Override(.85f);bloom.scatter.Override(.65f);
-            var color=profile.Add<ColorAdjustments>(true);color.postExposure.Override(.35f);color.contrast.Override(12);color.saturation.Override(-22);
-            var vignette=profile.Add<Vignette>(true);vignette.intensity.Override(.30f);vignette.smoothness.Override(.7f);
+            var color=profile.Add<ColorAdjustments>(true);color.postExposure.Override(.95f);color.contrast.Override(7);color.saturation.Override(-22);
+            var vignette=profile.Add<Vignette>(true);vignette.intensity.Override(.24f);vignette.smoothness.Override(.7f);
             var tone=profile.Add<Tonemapping>(true);tone.mode.Override(TonemappingMode.ACES);
             string path=Root+"/Materials/Mid_NightVolume.asset";
             // Volume 컴포넌트는 프로파일의 subasset으로 저장해야 재실행 후에도 남는다.

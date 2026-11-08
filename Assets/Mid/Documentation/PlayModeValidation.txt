@@ -1,4 +1,6 @@
 The Silent Pavilion — actual Unity Play mode
 6000.3.23f1
-PASS: breathing mesh, independent wisp movement, CharacterController route, proximity reveal.
-Endpoint: (0.00, 0.68, -0.90) / reveal=1
+PASS: readable breathing, independent wisp, walking controller, camera gait, footsteps, short proximity static, reveal.
+Endpoint: (-0.06, 0.68, 1.92) / reveal=1
+Head displacement (local m): 0.1402993 / max camera bob (m): 0.02760282
+Steps: 19 / static bursts: 4 / max intensity: 0.6999822 / clear near frames: 373

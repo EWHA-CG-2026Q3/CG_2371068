@@ -156,7 +156,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6a2d07a91d765fb4f837ce51d648839b, type: 2}
+  - {fileID: 2100000, guid: 2adadc898b823094fab655a1763269de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -230,9 +230,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SilentPavilion.MidCreatureBreathing
   upperBody: {fileID: 7780074777409454714}
   eyes: {fileID: 2676051113519822790}
-  breathsPerSecond: 0.17
-  expansion: 0.012
-  angleDegrees: 0.65
+  breathsPerSecond: 0.22
+  expansion: 0.028
+  angleDegrees: 3.2
+  swayDegrees: 0.9
   pivot: {x: 0, y: 0.88, z: 0.04}
 --- !u!136 &1085241702299812528
 CapsuleCollider:
@@ -323,7 +324,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6a2d07a91d765fb4f837ce51d648839b, type: 2}
+  - {fileID: 2100000, guid: 2adadc898b823094fab655a1763269de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

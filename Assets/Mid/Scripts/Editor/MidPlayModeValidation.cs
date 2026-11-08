@@ -21,6 +21,9 @@ namespace SilentPavilion.Editor
         static MidWispMotion wisp;
         static MidFirstPersonController walker;
         static MidAtmosphere atmosphere;
+        static MidProximityStatic interference;
+        static float maxHeadDisplacement,maxBob,maxStatic;
+        static int clearNearFrames;
 
         static MidPlayModeValidation()
         {
@@ -72,6 +75,8 @@ namespace SilentPavilion.Editor
                     walker=Object.FindFirstObjectByType<MidFirstPersonController>();
                     wisp=Object.FindFirstObjectByType<MidWispMotion>();
                     atmosphere=Object.FindFirstObjectByType<MidAtmosphere>();
+                    interference=Object.FindFirstObjectByType<MidProximityStatic>();
+                    maxHeadDisplacement=0;maxBob=0;maxStatic=0;clearNearFrames=0;
                     var v=breathing.upperBody.sharedMesh.vertices;
                     for(int i=1;i<v.Length;i++) if(v[i].y>v[headIndex].y) headIndex=i;
                     originalHead=v[headIndex];originalWisp=wisp.transform.localPosition;
@@ -81,26 +86,35 @@ namespace SilentPavilion.Editor
                 double now=EditorApplication.timeSinceStartup;
                 if(now-previousTick<.015) return;
                 previousTick=now;frames++;
+                maxHeadDisplacement=Mathf.Max(maxHeadDisplacement,Vector3.Distance(originalHead,breathing.upperBody.sharedMesh.vertices[headIndex]));
+                maxStatic=Mathf.Max(maxStatic,interference.CurrentIntensity);
                 if(stage==1 && now-started>2)
                 {
-                    Check(Vector3.Distance(originalHead,breathing.upperBody.sharedMesh.vertices[headIndex])>.00001f,"호흡 정점이 변하지 않음");
+                    Check(maxHeadDisplacement>.03f,"호흡 움직임이 충분히 보이지 않음: "+maxHeadDisplacement);
                     Check(Vector3.Distance(originalWisp,wisp.transform.localPosition)>.001f,"불빛이 움직이지 않음");
+                    Check(interference.BurstCount==0,"멀리서도 화면 잡음이 발생함");
                     walker.enabled=false;
                     SessionState.SetInt(Stage,2);started=now;frames=0;
                 }
                 else if(stage==2)
                 {
-                    var c=walker.GetComponent<CharacterController>();
-                    if(walker.transform.position.z<-.95f) c.Move(new Vector3(0,-.02f,.10f));
-                    else c.Move(new Vector3(0,-.02f,0));
-                    if(frames<160 || now-started<7) return;
-                    Check(walker.transform.position.z>-1.5f,"Play 모드 정자 진입 실패: "+walker.transform.position);
+                    walker.SimulateMovement(walker.transform.position.z<1.8f?Vector2.up:Vector2.zero,.06f);
+                    maxBob=Mathf.Max(maxBob,walker.CameraBobAmount);
+                    if(Vector3.Distance(walker.transform.position,atmosphere.creature.position)<4 && interference.CurrentIntensity==0) clearNearFrames++;
+                    if(frames<220 || now-started<8) return;
+                    Check(walker.transform.position.z>1.6f,"Play 모드 기존 의자 앞 진입 실패: "+walker.transform.position);
                     Check(walker.transform.position.y>-.2f,"Play 모드 지면 추락");
                     Check(atmosphere.reveal>.6f,"접근 후 크리처 드러남 연출 실패: "+atmosphere.reveal);
+                    Check(walker.StepCount>=10 && maxBob>.014f,"보행 주기/카메라 움직임 실패");
+                    Check(interference.BurstCount>0 && maxStatic>.03f,"접근 잡음이 발생하지 않음");
+                    Check(clearNearFrames>20,"잡음이 짧은 효과로 끝나지 않음");
                     string result=failures.Count==0?"PASS":"FAIL";
                     string report="The Silent Pavilion — actual Unity Play mode\n"+Application.unityVersion+"\n"+
-                        result+": breathing mesh, independent wisp movement, CharacterController route, proximity reveal.\n"+
-                        "Endpoint: "+walker.transform.position+" / reveal="+atmosphere.reveal+"\n"+string.Join("\n",failures);
+                        result+": readable breathing, independent wisp, walking controller, camera gait, footsteps, short proximity static, reveal.\n"+
+                        "Endpoint: "+walker.transform.position+" / reveal="+atmosphere.reveal+"\n"+
+                        "Head displacement (local m): "+maxHeadDisplacement+" / max camera bob (m): "+maxBob+"\n"+
+                        "Steps: "+walker.StepCount+" / static bursts: "+interference.BurstCount+" / max intensity: "+maxStatic+
+                        " / clear near frames: "+clearNearFrames+"\n"+string.Join("\n",failures);
                     File.WriteAllText(MidSceneBuilder.Root+"/Documentation/PlayModeValidation.txt",report);
                     SessionState.SetInt("Mid.PlayReview.Exit",failures.Count==0?0:1);
                     SessionState.SetInt(Stage,3);EditorApplication.ExitPlaymode();
