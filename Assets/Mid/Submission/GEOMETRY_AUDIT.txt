@@ -1,0 +1,3 @@
+PASS: generated tube side faces and ellipsoid faces point outward.
+Actual scene vertex/index/degenerate-face checks: Documentation/Validation.txt
+Runtime mesh deformation and rendering: Documentation/PlayModeValidation.txt

@@ -50,9 +50,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
+    <Compile Include="Assets\Mid\Scripts\Editor\MidLanternPlacement.cs" />
     <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\Editor\SamplesShowcaseEditor.cs" />
+    <Compile Include="Assets\Mid\Scripts\Editor\MidSceneBuilder.cs" />
+    <Compile Include="Assets\Mid\Scripts\Editor\MidSceneValidation.cs" />
+    <Compile Include="Assets\Mid\Scripts\Editor\MidScenePolish.cs" />
+    <Compile Include="Assets\Mid\Scripts\Editor\MidFinalSubmission.cs" />
     <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\Editor\InstallPackageEditor.cs" />
+    <Compile Include="Assets\Mid\Scripts\Editor\MidSubmissionRecorder.cs" />
+    <Compile Include="Assets\Mid\Scripts\Editor\MidSceneRevision.cs" />
     <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\Editor\SamplesShowcaseEditorWindow.cs" />
+    <Compile Include="Assets\Mid\Scripts\Editor\MidPlayModeValidation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

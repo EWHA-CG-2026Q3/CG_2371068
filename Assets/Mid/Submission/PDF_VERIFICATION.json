@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "pages": 3,
+  "embedded_images": 2,
+  "korean_text_verified": true,
+  "rendered_preview": "Logs/MidPdfPreview/Page_1.png .. Page_3.png",
+  "sha256": "a93a8ff10bf418d30a604b875c3956a11c56fb1a92102e88a913c1770e9f2416"
+}

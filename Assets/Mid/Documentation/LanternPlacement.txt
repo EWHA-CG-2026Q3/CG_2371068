@@ -1,0 +1,5 @@
+PASS: shade below roof, ceiling hanger connected, warm bulb and point light coincide.
+Roof underside: 3.110594
+Shade bounds: Center: (0.55, 2.75, 2.04), Extents: (0.13, 0.22, 0.12)
+Bulb and point light: (0.55, 2.59, 2.04)
+Rim relocated behind bench: (-1.10, 2.55, 3.90)

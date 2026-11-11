@@ -1,0 +1,12 @@
+The Silent Pavilion — Unity validation
+Unity: 6000.3.23f1 / 2026-11-08 12:55
+PASS: direct matrix T*Rx*S maps (1,1,0) to (5,0,1).
+PASS: 122 Mid mesh instances / 509598 triangles; finite vertices, valid nonzero faces, materials, scripts.
+Pavilion part Pavilion_Stair: Center: (-1.08, 0.35, -1.45), Extents: (1.41, 0.35, 2.85)
+Pavilion part Pavilion: Center: (0.50, 1.55, 0.47), Extents: (1.89, 1.55, 3.67)
+Pavilion part Pavilion_Roof: Center: (0.50, 3.24, 1.94), Extents: (1.99, 0.13, 2.36)
+PASS: no separate chair; pelvis contacts original bench; creature faces inward.
+PASS: pelvis pivot fixed; distance reveal; independent wisp motion.
+PASS: branch creature bark shader; text-free static overlay does not intercept input.
+Walk route endpoint: (-0.064, 0.682, 1.815)
+PASS: CharacterController outside -> pavilion interior, restored initial position.

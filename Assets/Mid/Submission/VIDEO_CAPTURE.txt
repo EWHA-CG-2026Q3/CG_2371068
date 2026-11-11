@@ -1,0 +1,5 @@
+Actual Unity Recorder Game View capture
+Unity 6000.3.23f1
+1280x720 / 30 fps / requested 1740 frames (58 seconds)
+Runtime camera tour + actual CharacterController walking
+Temporary recording captions; no captions saved into gameplay scene.
