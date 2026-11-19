@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 26f4aef54fe24213a2a930421785c4c3
+timeCreated: 1490275729
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 85680
+  packageName: Pavilion
+  packageVersion: 1.1
+  assetPath: Assets/IGBlocks/Pavilion/Models/Materials/Plane_Ground01.mat
+  uploadId: 892842

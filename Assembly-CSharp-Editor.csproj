@@ -56,6 +56,7 @@
     <Compile Include="Assets\Mid\Scripts\Editor\MidSceneValidation.cs" />
     <Compile Include="Assets\Mid\Scripts\Editor\MidScenePolish.cs" />
     <Compile Include="Assets\Mid\Scripts\Editor\MidFinalSubmission.cs" />
+    <Compile Include="Assets\S23\Editor\S20CombinedShaderDemo.cs" />
     <Compile Include="Assets\Samples\Scriptable Render Pipeline Core\17.3.0\Common\Scripts\Editor\InstallPackageEditor.cs" />
     <Compile Include="Assets\Mid\Scripts\Editor\MidSubmissionRecorder.cs" />
     <Compile Include="Assets\Mid\Scripts\Editor\MidSceneRevision.cs" />
@@ -1227,6 +1228,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.Recorder.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Splines.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Splines.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.2D.Editor.Overrides">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.2D.Editor.Overrides.dll</HintPath>
       <Private>False</Private>
@@ -1417,6 +1422,14 @@
     </Reference>
     <Reference Include="Unity.InputSystem">
       <HintPath>Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Settings.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Settings.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Splines">
+      <HintPath>Library\ScriptAssemblies\Unity.Splines.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.UI">

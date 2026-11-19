@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0c49af8bfb57408bac6d7b4246c087ec
+timeCreated: 1490272961
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 85680
+  packageName: Pavilion
+  packageVersion: 1.1
+  assetPath: Assets/IGBlocks/Pavilion/Models/Materials/Lamp_Light.mat
+  uploadId: 892842

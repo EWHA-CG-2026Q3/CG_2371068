@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0f3752a8c1994f2691f38071e52a1624
+timeCreated: 1490275829
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 85680
+  packageName: Pavilion
+  packageVersion: 1.1
+  assetPath: Assets/IGBlocks/Pavilion/Prefabs/Plane_Ground.prefab
+  uploadId: 892842

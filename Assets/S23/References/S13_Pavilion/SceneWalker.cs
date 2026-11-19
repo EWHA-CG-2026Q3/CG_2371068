@@ -1,4 +1,4 @@
-﻿// SceneWalker.cs — 공용 최소 1인칭 걷기 (S13~)
+// SceneWalker.cs — 공용 최소 1인칭 걷기 (S13~)
 // 씬: S13_Pavilion_Finish / 오브젝트: Player
 // WASD 이동, 마우스로 둘러보기, Shift 달리기
 // 클릭하면 마우스가 화면에 고정되고, Esc로 풀림

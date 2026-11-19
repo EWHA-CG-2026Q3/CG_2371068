@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d03a9491a54c40eb85f602227ab311ba
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 4890085278179872738
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 85680
+  packageName: Pavilion
+  packageVersion: 1.1
+  assetPath: Assets/IGBlocks/Pavilion/Scenes/PavilionSettings.lighting
+  uploadId: 892842
